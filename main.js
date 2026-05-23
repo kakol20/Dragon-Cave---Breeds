@@ -28,12 +28,7 @@ async function run() {
 		column += `<tr><th>${player.name}</th><th>View</th></tr>`;
 
 		// ========== DRAGONS ==========
-		let maxDragons = player.dragons.length;
-
-		for (let d = 0; d < maxDragons; ++d) {
-			if (maxDragons > 25) {
-				if (player.dragons[d].view.length >= 3 && player.dragons[d].adults == player.dragons[d].view.length) continue;
-			}
+		for (let d = 0; d < player.dragons.length; ++d) {
 			let row = `<tr>`;
 
 			// Show Eggs
