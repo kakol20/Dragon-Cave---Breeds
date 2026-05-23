@@ -4,13 +4,6 @@
 	font-weight: normal;
 	font-style: normal;
 }
- /* @font-face {
-	font-family: 'Cascadia Code';
-	src: url('CascadiaCode-Regular.ttf') format('ttf');
-	font-weight: normal;
-	font-style: normal;
-	font-variant-ligatures: normal;
-} */
 
 .cascadia-code-cascadia {
   font-family: "Cascadia Code", sans-serif;
@@ -54,22 +47,4 @@ table {
 	/*width: 100%;*/
 	border-collapse: collapse;
 	text-align: center;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* Create a two-column layout */
-.column {
-  float: left;
-  /*width: 50%;*/
-  padding: 10px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
 }

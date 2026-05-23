@@ -22,7 +22,7 @@ async function run() {
 		player.dragons.sort(sortDragons);
 		console.log(player);
 
-		let column = `<div class="column"><table>`
+		let column = `<table>`
 
 		//  ========== HEADER ==========
 		column += `<tr><th>${player.name}</th><th>View</th></tr>`;
@@ -59,9 +59,14 @@ async function run() {
 			column += row;
 		}
 
-		column += `</table></div>`;
+		column += `</table>`;
 
-		row1HTML += column;
+		// row1HTML += column;
+		if (p === 0) {
+			row1HTML = column;
+		} else {
+			row1HTML += column;
+		}
 	}
 	document.getElementById('row1').innerHTML = row1HTML;
 }
