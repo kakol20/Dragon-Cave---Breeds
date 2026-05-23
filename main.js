@@ -25,7 +25,7 @@ async function run() {
 		let column = `<table>`
 
 		//  ========== HEADER ==========
-		column += `<tr><th>${player.name}</th><th>View</th></tr>`;
+		column += `<tr><th>Egg</th><th>Dragons</th></tr>`;
 
 		// ========== DRAGONS ==========
 		for (let d = 0; d < player.dragons.length; ++d) {
