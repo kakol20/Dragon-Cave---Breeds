@@ -4,9 +4,24 @@
 	font-weight: normal;
 	font-style: normal;
 }
+ /* @font-face {
+	font-family: 'Cascadia Code';
+	src: url('CascadiaCode-Regular.ttf') format('ttf');
+	font-weight: normal;
+	font-style: normal;
+	font-variant-ligatures: normal;
+} */
+
+.cascadia-code-cascadia {
+  font-family: "Cascadia Code", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
 
 body {
-	font-family: 'Open Sans';
+	font-family: 'Cascadia Code';
+	/* font-size: 14px; */
 
 	padding: 10px;
 	/* line-height: 1.75; */
