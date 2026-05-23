@@ -36,9 +36,9 @@ async function run() {
 			for (let i = 0; i < mainJSON.breeds[player.dragons[d].id].name.length; ++i) {
 				row += `<img src="${mainJSON.breeds[player.dragons[d].id].img[i]}"`;
 				row += `title="${mainJSON.breeds[player.dragons[d].id].name[i]}"> `;
-			} 
+			}
 			row += `</td>`;
-			
+
 			// View https://dragcave.net/image/r5HjG.gif
 			row += `<td>`;
 			for (let i = 0; i < player.dragons[d].view.length; ++i) {
