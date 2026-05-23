@@ -1,0 +1,60 @@
+@font-face {
+	font-family: 'Open Sans';
+	src: url('opensans-regular-webfont.woff2') format('woff2'), url('opensans-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Open Sans';
+
+	padding: 10px;
+	/* line-height: 1.75; */
+
+	background-color: color-mix(in oklab, Canvas, CanvasText 2.5%);
+	color: color-mix(in oklab, CanvasText, Canvas 15%);
+	color-scheme: light dark;
+}
+
+textarea {
+	width: 95%;
+}
+
+form {
+	font-weight: bold;
+	line-height: 1.75;
+}
+
+/* form span {
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+} */
+
+th, td {
+	border: 1px solid;
+	padding: 5px;
+}
+
+table {
+	/*width: 100%;*/
+	border-collapse: collapse;
+	text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create a two-column layout */
+.column {
+  float: left;
+  /*width: 50%;*/
+  padding: 10px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
