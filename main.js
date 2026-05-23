@@ -76,5 +76,7 @@ async function run() {
 function sortDragons(a, b) {
 	if (a.view.length !== b.view.length) return a.view.length - b.view.length;
 
+	if (a.adults !== b.adults) return a.adults - b.adults;
+
 	return a.id.localeCompare(b.id);
 }

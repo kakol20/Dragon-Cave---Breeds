@@ -5,7 +5,8 @@
 			"id": "fire_gem",
 			"view": [
 				"MCLFE"
-			]
+			],
+			"adults": 0
 		},
 		{
 			"id": "black_tea",
@@ -13,7 +14,8 @@
 				"Mj21N",
 				"K3zUw",
 				"yMQNJ"
-			]
+			],
+			"adults": 0
 		},
 		{
 			"id": "celestial",
@@ -21,7 +23,8 @@
 				"vAPaO",
 				"77A2e",
 				"zXxjZ"
-			]
+			],
+			"adults": 0
 		},
 		{
 			"id": "flamingo",
@@ -29,19 +32,22 @@
 				"2nCMa",
 				"VCqGT",
 				"etvFM"
-			]
+			],
+			"adults": 0
 		},
 		{
 			"id": "algarre",
 			"view": [
 				"d0xkk"
-			]
+			],
+			"adults": 0
 		},
 		{
 			"id": "aranoa",
 			"view": [
 				"zExB9"
-			]
+			],
+			"adults": 0
 		}
 	]
 }
