@@ -7,6 +7,10 @@
 			"name": ["Alcedine Wyvern"],
 			"img": ["eggs/Alcedine_egg.webp"]
 		},
+		"algarre": {
+			"name": ["Algarre Dragon"],
+			"img": ["eggs/Algarre_egg.webp"]
+		},
 		"antarean": {
 			"name": ["Antarean Dragon"],
 			"img": ["eggs/Antarean_egg.webp"]
@@ -21,7 +25,9 @@
 		},
 		"black_tea": {
 			"name": ["Black Tea Dragon"],
-			"img": ["eggs/Black_Tea_egg.webp"]
+			"img": [
+				"eggs/Black_Tea_egg.webp"
+			]
 		},
 		"blazeback": {
 			"name": ["Blazeback Dragon"],
@@ -35,9 +41,21 @@
 			"name": ["Daydream Dragon"],
 			"img": ["eggs/Daydream_egg.webp"]
 		},
+		"delta": {
+			"name": ["Delta Dragon"],
+			"img": ["eggs/Delta_egg.webp"]
+		},
 		"fire_gem": {
-			"name": ["Fire Gem Dragon Red", "Fire Gem Dragon Green", "Fire Gem Dragon Blue"],
-			"img": ["eggs/Fire_Gem_red_egg.webp", "eggs/Fire_Gem_green_egg.webp", "eggs/Fire_Gem_blue_egg.webp"]
+			"name": [
+				"Fire Gem Dragon Red",
+				"Fire Gem Dragon Green",
+				"Fire Gem Dragon Blue"
+			],
+			"img": [
+				"eggs/Fire_Gem_red_egg.webp",
+				"eggs/Fire_Gem_green_egg.webp",
+				"eggs/Fire_Gem_blue_egg.webp"
+			]
 		},
 		"flamingo": {
 			"name": ["Flamingo Wyvern"],
@@ -59,6 +77,16 @@
 			"name": ["Nocturne Dragon"],
 			"img": ["eggs/Nocturne_egg.webp"]
 		},
+		"ridgewing": {
+			"name": [
+				"Ridgewing Dragon Purple",
+				"Ridgewing Dragon Tan"
+			],
+			"img": [
+				"eggs/Purple_Ridgewing_egg.webp",
+				"eggs/Tan_Ridgewing_egg.webp"
+			]
+		},
 		"storm": {
 			"name": ["Storm Dragon"],
 			"img": ["eggs/Storm_egg.webp"]
@@ -70,18 +98,6 @@
 		"white": {
 			"name": ["White Dragon"],
 			"img": ["eggs/White_egg.webp"]
-		},
-		"algarre": {
-			"name": ["Algarre Dragon"],
-			"img": ["eggs/Algarre_egg.webp"]
-		},
-		"ridgewing": {
-			"name": ["Ridgewing Dragon Purple", "Ridgewing Dragon Tan"],
-			"img": ["eggs/Purple_Ridgewing_egg.webp", "eggs/Tan_Ridgewing_egg.webp"]
-		},
-		"delta": {
-			"name": ["Delta Dragon"],
-			"img": ["eggs/Delta_egg.webp"]
 		}
 	}
 }
