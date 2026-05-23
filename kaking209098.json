@@ -3,27 +3,45 @@
 	"dragons": [
 		{
 			"id": "fire_gem",
-			"view": ["MCLFE"]
+			"view": [
+				"MCLFE"
+			]
 		},
 		{
 			"id": "black_tea",
-			"view": ["Mj21N", "K3zUw", "yMQNJ"]
+			"view": [
+				"Mj21N",
+				"K3zUw",
+				"yMQNJ"
+			]
 		},
 		{
 			"id": "celestial",
-			"view": ["vAPaO", "77A2e", "zXxjZ"]
+			"view": [
+				"vAPaO",
+				"77A2e",
+				"zXxjZ"
+			]
 		},
 		{
 			"id": "flamingo",
-			"view": ["2nCMa", "VCqGT", "etvFM"]
+			"view": [
+				"2nCMa",
+				"VCqGT",
+				"etvFM"
+			]
 		},
 		{
 			"id": "algarre",
-			"view": ["d0xkk"]
+			"view": [
+				"d0xkk"
+			]
 		},
 		{
 			"id": "aranoa",
-			"view": ["zExB9"]
+			"view": [
+				"zExB9"
+			]
 		}
 	]
 }

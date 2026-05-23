@@ -3,59 +3,90 @@
 	"dragons": [
 		{
 			"id": "white",
-			"view": ["dwXyL", "hDWez", "FIKTC"]
+			"view": [
+				"dwXyL",
+				"hDWez",
+				"FIKTC"
+			]
 		},
 		{
 			"id": "alcedine",
-			"view": ["r5HjG"]
+			"view": [
+				"r5HjG"
+			]
 		},
 		{
 			"id": "antarean",
-			"view": ["qZzsu"]
+			"view": [
+				"qZzsu"
+			]
 		},
 		{
 			"id": "black",
-			"view": ["WUMhA"]
+			"view": [
+				"WUMhA"
+			]
 		},
 		{
 			"id": "blazeback",
-			"view": ["7NryX"]
+			"view": [
+				"7NryX"
+			]
 		},
 		{
 			"id": "daydream",
-			"view": ["sYh9W"]
+			"view": [
+				"sYh9W"
+			]
 		},
 		{
 			"id": "flamingo",
-			"view": ["jlPOW"]
+			"view": [
+				"jlPOW"
+			]
 		},
 		{
 			"id": "galvanic",
-			"view": ["zcYmY"]
+			"view": [
+				"zcYmY"
+			]
 		},
 		{
 			"id": "hellfire",
-			"view": ["Gbbwu"]
+			"view": [
+				"Gbbwu"
+			]
 		},
 		{
 			"id": "nocturne",
-			"view": ["YDcCw"]
+			"view": [
+				"YDcCw"
+			]
 		},
 		{
 			"id": "storm",
-			"view": ["AlWtg"]
+			"view": [
+				"AlWtg"
+			]
 		},
 		{
 			"id": "turpentine",
-			"view": ["BsGfE", "Qb4mK"]
+			"view": [
+				"BsGfE",
+				"Qb4mK"
+			]
 		},
 		{
 			"id": "nebula",
-			"view": ["IbXTR"]
+			"view": [
+				"IbXTR"
+			]
 		},
 		{
 			"id": "ridgewing",
-			"view": ["68hXp"]
+			"view": [
+				"68hXp"
+			]
 		}
 	]
 }

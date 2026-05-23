@@ -29,6 +29,7 @@ async function run() {
 
 		// ========== DRAGONS ==========
 		let maxDragons = player.dragons.length;
+
 		if (player.dragons.length > 25) {
 			let newMax = 0;
 			for (let i = 0; player.dragons.length; ++i) {
@@ -36,9 +37,9 @@ async function run() {
 				++newMax;
 			}
 
-			maxDragons = newMax;
+			maxDragons = Math.max(newMax, 25);
 		}
-		
+
 		for (let d = 0; d < maxDragons; ++d) {
 			let row = `<tr>`;
 
