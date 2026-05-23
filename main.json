@@ -75,6 +75,10 @@
 		"algarre": {
 			"name": ["Algarre Dragon"],
 			"img": ["eggs/Algarre_egg.webp"]
+		},
+		"ridgewing": {
+			"name": ["Ridgewing Dragon Purple", "Ridgewing Dragon Tan"],
+			"img": ["eggs/Purple_Ridgewing_egg.webp", "eggs/Tan_Ridgewing_egg.webp"]
 		}
 	}
 }
