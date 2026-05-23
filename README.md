@@ -1,2 +1,2 @@
 # Dragon Cave - Breeds
-A visual progress of breeds
+A visual age progress of dragons
