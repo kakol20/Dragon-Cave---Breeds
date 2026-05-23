@@ -71,6 +71,10 @@
 		"white": {
 			"name": ["White Dragon"],
 			"img": ["eggs/White_egg.webp"]
+		},
+		"algarre": {
+			"name": ["Algarre Dragon"],
+			"img": ["eggs/Algarre_egg.webp"]
 		}
 	}
 }
