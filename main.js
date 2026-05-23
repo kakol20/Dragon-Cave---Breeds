@@ -42,7 +42,9 @@ async function run() {
 			// View https://dragcave.net/image/r5HjG.gif
 			row += `<td>`;
 			for (let i = 0; i < player.dragons[d].view.length; ++i) {
-				row += `<img src="https://dragcave.net/image/${player.dragons[d].view[i]}.gif"> `;
+				row += `<a href="https://dragcave.net/view/${player.dragons[d].view[i]}" target="_blank">`;
+				row += `<img src="https://dragcave.net/image/${player.dragons[d].view[i]}.gif">`;
+				row += `</a> `;
 			}
 			row += `</td>`
 
