@@ -1,73 +1,68 @@
 async function run() {
-	let row1HTML = '';
+	let output = '';
 
-	const mainJSONResponse = await fetch('main.json');
-	if (!mainJSONResponse.ok) {
-		throw new Error(`Response status: ${mainJSONResponse.status}`);
+	const mainResponse = await fetch('main.json');
+	if (!mainResponse.ok) {
+		throw new Error(`Error fetching main.json: ${mainResponse.staus}`);
+		document.getElementById('output').innerHTML = `Error fetching main.json: ${mainResponse.staus}`;
 		return;
 	}
+	const main = await mainResponse.json();
+	console.log(main);
 
-	const mainJSON = await mainJSONResponse.json();
-	console.log(mainJSON);
-
-	for (let p = 0; p < mainJSON.players.length; ++p) {
-		// console.log(mainJSON.players[i]);
-
-		const playerResponse = await fetch(mainJSON.players[p]);
-		if (!playerResponse.ok) {
-			throw new Error(`Response status: ${playerResponse.status}`);
-			continue;
-		}
-		const player = await playerResponse.json();
-		player.dragons.sort(sortDragons);
-		console.log(player);
-
-		let column = `<table>`
-
-		//  ========== HEADER ==========
-		column += `<tr><th>Egg</th><th>Dragons</th></tr>`;
-
-		// ========== DRAGONS ==========
-		for (let d = 0; d < player.dragons.length; ++d) {
-			if (player.dragons[d].view.length >= 3 && 
-				player.dragons[d].view.length === player.dragons[d].adults &&
-				player.dragons.length > 50) continue;
-
-			let row = `<tr>`;
-
-			// Show Eggs
-			row += `<td>`
-			for (let i = 0; i < mainJSON.breeds[player.dragons[d].id].name.length; ++i) {
-				row += `<img src="${mainJSON.breeds[player.dragons[d].id].img[i]}"`;
-				row += `title="${mainJSON.breeds[player.dragons[d].id].name[i]}"> `;
-			}
-			row += `</td>`;
-
-			// View https://dragcave.net/image/r5HjG.gif
-			row += `<td>`;
-			for (let i = 0; i < player.dragons[d].view.length; ++i) {
-				row += `<a href="https://dragcave.net/view/${player.dragons[d].view[i]}" target="_blank">`;
-				row += `<img src="https://dragcave.net/image/${player.dragons[d].view[i]}.gif">`;
-				row += `</a> `;
-			}
-			row += `</td>`
-
-			// End
-			row += `</tr>`
-
-			column += row;
-		}
-
-		column += `</table>`;
-
-		// row1HTML += column;
-		if (p === 0) {
-			row1HTML = column;
-		} else {
-			row1HTML += column;
-		}
+	const playerResponse = await fetch(main.player);
+	if (!playerResponse.ok) {
+		throw new Error(`Error fetching main.player json file: ${playerResponse.status}`);
+		document.getElementById('output').innerHTML = `Error fetching main.player json file: ${playerResponse.status}`;
+		return;
 	}
-	document.getElementById('row1').innerHTML = row1HTML;
+	const player = await playerResponse.json();
+	player.dragons.sort(sortDragons);
+	console.log(player);
+
+	const breedsResponse = await fetch(main.breeds);
+	if (!breedsResponse.ok) {
+		throw new Error(`Error fetching main.breeds json file: ${breedsResponse.status}`);
+		document.getElementById('output').innerHTML = `Error fetching main.breeds json file: ${breedsResponse.status}`;
+		return;
+	}
+	const breeds = await breedsResponse.json();
+	console.log(breeds);
+
+	output = `<table>`;
+
+	//  ========== HEADER ==========
+	output += `<tr><th>Egg</th><th>Dragons</th></tr>`;
+
+	// ========== DRAGONS ==========
+	for (let d = 0; d < player.dragons.length; ++d) {
+		if (player.dragons[d].view.length >= 3 &&
+			player.dragons[d].view.length === player.dragons[d].adults &&
+			player.dragons.length > 50) continue;
+
+		output += `<tr>`;
+
+		// Show Eggs
+		output += `<td>`;
+		for (let i = 0; i < breeds[player.dragons[d].id].name.length; ++i) {
+			output += `<img src="${breeds[player.dragons[d].id].img[i]}"`;
+			output += `title="${breeds[player.dragons[d].id].name[i]}"> `;
+		}
+		output += `</td>`;
+
+		// View https://dragcave.net/image/r5HjG.gif
+		output += `<td>`;
+		for (let i = 0; i < player.dragons[d].view.length; ++i) {
+			output += `<a href="https://dragcave.net/view/${player.dragons[d].view[i]}" target="_blank">`;
+			output += `<img src="https://dragcave.net/image/${player.dragons[d].view[i]}.gif">`;
+			output += `</a> `;
+		}
+
+		// End
+		output += `</td></tr>`;
+	}
+	output += `</table>`;
+	document.getElementById('output').innerHTML = output;
 }
 
 function sortDragons(a, b) {
