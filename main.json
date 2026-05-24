@@ -5,45 +5,43 @@
 	"breeds": {
 		"alcedine": {
 			"name": ["Alcedine Wyvern"],
-			"img": ["eggs/Alcedine_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/7/7k67sd.png"]
 		},
 		"algarre": {
 			"name": ["Algarre Dragon"],
-			"img": ["eggs/Algarre_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/8/8itcaf.gif"]
 		},
 		"antarean": {
 			"name": ["Antarean Dragon"],
-			"img": ["eggs/Antarean_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/q/q6r6p3.gif"]
 		},
 		"aranoa": {
 			"name": ["Aranoa Dragon"],
-			"img": ["eggs/Aranoa_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/8/8itcaf.gif"]
 		},
 		"black": {
 			"name": ["Black Dragon"],
-			"img": ["eggs/Black_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/d/dqb23h.gif"]
 		},
 		"black_tea": {
 			"name": ["Black Tea Dragon"],
-			"img": [
-				"eggs/Black_Tea_egg.webp"
-			]
+			"img": ["https://s.dcave.net/cache/images/8/8itcaf.gif"]
 		},
 		"blazeback": {
 			"name": ["Blazeback Dragon"],
-			"img": ["eggs/Blazeback_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/a/ar4nek.gif"]
 		},
 		"celestial": {
 			"name": ["Celestial Dragon"],
-			"img": ["eggs/Celestial_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/8/8itcaf.gif"]
 		},
 		"daydream": {
 			"name": ["Daydream Dragon"],
-			"img": ["eggs/Daydream_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/p/p91sp4.png"]
 		},
 		"delta": {
 			"name": ["Delta Dragon"],
-			"img": ["eggs/Delta_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/1/1etuu0g.png"]
 		},
 		"fire_gem": {
 			"name": [
@@ -52,30 +50,30 @@
 				"Fire Gem Dragon Blue"
 			],
 			"img": [
-				"eggs/Fire_Gem_red_egg.webp",
-				"eggs/Fire_Gem_green_egg.webp",
-				"eggs/Fire_Gem_blue_egg.webp"
+				"https://s.dcave.net/cache/images/8/8itcaf.gif",
+				"https://s.dcave.net/cache/images/8/8itcaf.gif",
+				"https://s.dcave.net/cache/images/8/8itcaf.gif"
 			]
 		},
 		"flamingo": {
 			"name": ["Flamingo Wyvern"],
-			"img": ["eggs/Flamingo_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/z/zlrspw.gif"]
 		},
 		"galvanic": {
 			"name": ["Galvanic Wyvern"],
-			"img": ["eggs/Galvanic_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/6/6cxaba.gif"]
 		},
 		"hellfire": {
 			"name": ["Hellfire Wyvern"],
-			"img": ["eggs/Hellfire_Wyvern_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/z/zfngfs.gif"]
 		},
 		"nebula": {
 			"name": ["Nebula Dragon"],
-			"img": ["eggs/Nebula_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/n/nkcfft.gif"]
 		},
 		"nocturne": {
 			"name": ["Nocturne Dragon"],
-			"img": ["eggs/Nocturne_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/2/2hbvir.gif"]
 		},
 		"ridgewing": {
 			"name": [
@@ -83,21 +81,21 @@
 				"Ridgewing Dragon Tan"
 			],
 			"img": [
-				"eggs/Purple_Ridgewing_egg.webp",
-				"eggs/Tan_Ridgewing_egg.webp"
+				"https://s.dcave.net/cache/images/1/18zixzn.gif",
+				"https://s.dcave.net/cache/images/8/8itcaf.gif"
 			]
 		},
 		"storm": {
 			"name": ["Storm Dragon"],
-			"img": ["eggs/Storm_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/o/oe0see.gif"]
 		},
 		"turpentine": {
 			"name": ["Turpentine Dragon"],
-			"img": ["eggs/Turpentine_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/1/1xqv2oz.png"]
 		},
 		"white": {
 			"name": ["White Dragon"],
-			"img": ["eggs/White_egg.webp"]
+			"img": ["https://s.dcave.net/cache/images/n/n19bd4.gif"]
 		}
 	}
 }
