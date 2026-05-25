@@ -43,7 +43,7 @@ async function run() {
 
 		output += `<tr>`;
 
-		// Show Dragons
+		// Show Egg
 		output += `<td>`;
 		for (let i = 0; i < breeds[player.dragons[d].id].name.length; ++i) {
 			output += `<img src="${breeds[player.dragons[d].id].img[i]}"`;
