@@ -54,7 +54,7 @@ async function run() {
 			output += `<img src="${breeds[breed.id].img[egg]}"`;
 			output += `title="${breeds[breed.id].name[egg]}`;
 			output += `\n${breeds[breed.id].description}">`;
-			output += `</a> ';
+			output += `</a> `;
 		}
 		output += `</td>`;
 
