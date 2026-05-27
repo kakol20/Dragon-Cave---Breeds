@@ -40,9 +40,9 @@ async function run() {
 	for (let d = 0; d < player.dragons.length; ++d) {
 		if (player.dragons[d].view.length >= 3 &&
 			player.dragons[d].view.length === player.dragons[d].adults &&
-			dragonsDisplayed >= 50) {
+			dragonsDisplayed >= 0) {
 
-			hidden.push(player.dragons[d]).id;
+			hidden.push(player.dragons[d].id);
 			continue;
 		}
 
@@ -52,7 +52,8 @@ async function run() {
 		output += `<td>`;
 		for (let i = 0; i < breeds[player.dragons[d].id].name.length; ++i) {
 			output += `<img src="${breeds[player.dragons[d].id].img[i]}"`;
-			output += `title="${breeds[player.dragons[d].id].name[i]}"> `;
+			output += `title="${breeds[player.dragons[d].id].name[i]}`;
+			output += `\n${breeds[player.dragons[d].id].description[i]}"> `;
 		}
 		output += `</td>`;
 
@@ -74,7 +75,8 @@ async function run() {
 	for (let i = 0; i < hidden.length; ++i) {
 		for (let j = 0; j < breeds[hidden[i]].name.length; ++j) {
 			output += `<img src="${breeds[hidden[i]].img[j]}"`;
-			output += `title="${breeds[hidden[i]].name[j]}"> `;
+			output += `title="${breeds[hidden[i]].name[j]}`;
+			output += `\n${breeds[hidden[i]].description[j]}"> `;
 		}
 	}
 
