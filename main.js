@@ -1,10 +1,8 @@
 async function run() {
-	let output = '';
-
 	const mainResponse = await fetch('main.json');
 	if (!mainResponse.ok) {
 		throw new Error(`Error fetching main.json: ${mainResponse.staus}`);
-		document.getElementById('output').innerHTML = `Error fetching main.json: ${mainResponse.staus}`;
+		document.getElementById('output').innerHTML = `Error fetching main.json: ${mainResponse.status}`;
 		return;
 	}
 	const main = await mainResponse.json();
@@ -29,7 +27,7 @@ async function run() {
 	const breeds = await breedsResponse.json();
 	console.log(breeds);
 
-	output = `<table>`;
+	let output = `<table>`;
 
 	//  ========== HEADER ==========
 	output += `<tr><th>Egg</th><th>Dragons</th></tr>`;
@@ -37,31 +35,32 @@ async function run() {
 	// ========== DRAGONS ==========
 	let hidden = [];
 	let dragonsDisplayed = 0;
-	for (let d = 0; d < player.dragons.length; ++d) {
-		if (player.dragons[d].view.length >= 3 &&
-			player.dragons[d].view.length === player.dragons[d].adults &&
-			dragonsDisplayed >= 50) {
 
-			hidden.push(player.dragons[d].id);
+	for (const breed of player.dragons) {
+		// console.log(breed);
+		if (breed.view.length >= 3 &&
+			breed.view.length === breed.adults &&
+			dragonsDisplayed >= 50) {
+			hidden.push(breed.id);
 			continue;
 		}
 
 		output += `<tr>`;
 
-		// Show Egg
-		output += `<td><a href="${breeds[player.dragons[d].id].encyclopedia}" target="_blank">`;
-		for (let i = 0; i < breeds[player.dragons[d].id].name.length; ++i) {
-			output += `<img src="${breeds[player.dragons[d].id].img[i]}"`;
-			output += `title="${breeds[player.dragons[d].id].name[i]}`;
-			output += `\n${breeds[player.dragons[d].id].description}"> `;
+		// Show egg
+		output += `<td><a href="${breeds[breed.id].encyclopedia}" target="_blank">`;
+		for (const egg in breeds[breed.id].name) {
+			output += `<img src="${breeds[breed.id].img[egg]}"`;
+			output += `title="${breeds[breed.id].name[egg]}`;
+			output += `\n${breeds[breed.id].description}"> `;
 		}
 		output += `</a></td>`;
 
 		// View https://dragcave.net/image/r5HjG.gif
 		output += `<td>`;
-		for (let i = 0; i < player.dragons[d].view.length; ++i) {
-			output += `<a href="https://dragcave.net/view/${player.dragons[d].view[i]}" target="_blank">`;
-			output += `<img src="https://dragcave.net/image/${player.dragons[d].view[i]}.gif">`;
+		for (const dragon of breed.view) {
+			output += `<a href="https://dragcave.net/view/${dragon}" target="_blank">`;
+			output += `<img src="https://dragcave.net/image/${dragon}.gif">`;
 			output += `</a> `;
 			++dragonsDisplayed;
 		}
@@ -71,15 +70,20 @@ async function run() {
 	}
 	output += `</table>`;
 
-	if (hidden.length > 0) output += `\n<h4 title="Breed group hase >= 3 adults">Hidden</h4>`;
-	for (let i = 0; i < hidden.length; ++i) {
-		output += `<a href="${breeds[hidden[i]].encyclopedia}" target="_blank">`
-		for (let j = 0; j < breeds[hidden[i]].name.length; ++j) {
-			output += `<img src="${breeds[hidden[i]].img[j]}"`;
-			output += `title="${breeds[hidden[i]].name[j]}`;
-			output += `\n${breeds[hidden[i]].description}"> `;
+	// console.log('==========')
+	console.log('Dragons displayed', dragonsDisplayed);
+
+	if (hidden.length > 0) output += `\n<h4 title="Breed group has >= 3 adults & displayed dragons is >= 50">Hidden</h4>`;
+	// console.log(hidden);
+	for (const id of hidden) {
+		output += `<a href="${breeds[id].encyclopedia}" target="_blank">`
+		// console.log(id, breeds[id]);
+		for (const egg in breeds[id].name) {
+			output += `<img src="${breeds[id].img[egg]}"`;
+			output += `title="${breeds[id].name[egg]}`;
+			output += `\n${breeds[id].description}">`;
 		}
-		output += `</a>`;
+		output += `</a> `;
 	}
 
 	document.getElementById('output').innerHTML = output;
