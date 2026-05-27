@@ -40,7 +40,7 @@ async function run() {
 	for (let d = 0; d < player.dragons.length; ++d) {
 		if (player.dragons[d].view.length >= 3 &&
 			player.dragons[d].view.length === player.dragons[d].adults &&
-			dragonsDisplayed >= 0) {
+			dragonsDisplayed >= 50) {
 
 			hidden.push(player.dragons[d].id);
 			continue;
@@ -49,13 +49,13 @@ async function run() {
 		output += `<tr>`;
 
 		// Show Egg
-		output += `<td>`;
+		output += `<td><a href="${breeds[player.dragons[d].id].encyclopedia}" target="_blank">`;
 		for (let i = 0; i < breeds[player.dragons[d].id].name.length; ++i) {
 			output += `<img src="${breeds[player.dragons[d].id].img[i]}"`;
 			output += `title="${breeds[player.dragons[d].id].name[i]}`;
 			output += `\n${breeds[player.dragons[d].id].description[i]}"> `;
 		}
-		output += `</td>`;
+		output += `</a></td>`;
 
 		// View https://dragcave.net/image/r5HjG.gif
 		output += `<td>`;
@@ -73,11 +73,13 @@ async function run() {
 
 	if (hidden.length > 0) output += `\n<h4 title="Breed group hase >= 3 adults">Hidden</h4>`;
 	for (let i = 0; i < hidden.length; ++i) {
+		output += `<a href="${breeds[hidden[i]].encyclopedia}" target="_blank">`
 		for (let j = 0; j < breeds[hidden[i]].name.length; ++j) {
 			output += `<img src="${breeds[hidden[i]].img[j]}"`;
 			output += `title="${breeds[hidden[i]].name[j]}`;
 			output += `\n${breeds[hidden[i]].description[j]}"> `;
 		}
+		output += `</a>`;
 	}
 
 	document.getElementById('output').innerHTML = output;
