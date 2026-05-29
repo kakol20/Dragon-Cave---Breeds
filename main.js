@@ -55,10 +55,12 @@ async function getJSON() {
 
 function draw() {
 	const dateNow = Date.now();
+	const dateStr = new Date(dateNow);
 
 	let output = `<table>`;
 
 	//  ========== HEADER ==========
+	output += `<h5>Last Updated: ${dateStr}</h5>`;
 	output += `<tr><th>Egg</th><th>Dragons</th></tr>`;
 
 	// ========== DRAGONS ==========
@@ -122,6 +124,7 @@ function draw() {
 
 setInterval(async () => {
 	const dateNow = Date.now();
+	const dateStr = new Date(dateNow);
 	const gist = await fetch(`${main.gist}?t=${dateNow}`, {
 		cache: "no-store"
 	}).then(
@@ -133,10 +136,10 @@ setInterval(async () => {
 	if (gistLastUpdated !== update_at) {
 		gistLastUpdated = update_at;
 		await getJSON();
-		console.log('JSON Changed');
+		console.log('JSON Changed', dateStr);
 	}
 
-	console.log('Redrawing');
+	console.log('Redrawing', dateStr);
 	draw();
 }, 10 * 60 * 1000);
 
