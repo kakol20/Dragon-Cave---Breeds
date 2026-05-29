@@ -82,9 +82,9 @@ function draw() {
 		output += `<td>`;
 		for (const egg in breeds[breed.id].name) {
 			output += `<a href="${breeds[breed.id].encyclopedia}" target="_blank">`;
-			output += `<img src="${breeds[breed.id].img[egg]}?t=${dateNow}"`;
-			output += `title="${breeds[breed.id].name[egg]}"`;
-			output += `\n${breeds[breed.id].description}">`;
+			output += `<img src="${breeds[breed.id].img[egg]}"`;
+			output += `title="${breeds[breed.id].name[egg]}`;
+			output += `\n${breeds[breed.id].description}" alt="${breeds[breed.id].name[egg]}">`;
 			output += `</a> `;
 		}
 		output += `</td>`;
