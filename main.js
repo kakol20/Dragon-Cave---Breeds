@@ -2,7 +2,10 @@ let main;
 let player;
 let breeds;
 
+let gistLastUpdated;
+
 async function run() {
+	const dateNow = Date.now();
 	const mainResponse = await fetch('main.json');
 	if (!mainResponse.ok) {
 		throw new Error(`Error fetching main.json: ${mainResponse.staus}`);
@@ -10,9 +13,25 @@ async function run() {
 		return;
 	}
 	main = await mainResponse.json();
-	console.log(main);
+	// console.log(main);
 
-	const playerResponse = await fetch(main.player);
+	const gist = await fetch(`${main.gist}?t=${dateNow}`, {
+		cache: "no-store"
+	}).then(
+		r => r.json()
+	);
+	gistLastUpdated = gist.updated_at;
+	console.log(gist, gist.updated_at);
+
+	await getJSON();
+	draw();
+}
+
+async function getJSON() {
+	const dateNow = Date.now();
+	const playerResponse = await fetch(`${main.player}?t=${dateNow}`, {
+		cache: "no-store"
+	});
 	if (!playerResponse.ok) {
 		throw new Error(`Error fetching main.player json file: ${playerResponse.status}`);
 		document.getElementById('output').innerHTML = `Error fetching main.player json file: ${playerResponse.status}`;
@@ -20,18 +39,18 @@ async function run() {
 	}
 	player = await playerResponse.json();
 	player.dragons.sort(sortDragons);
-	console.log(player);
+	// console.log(playerResponse, player);
 
-	const breedsResponse = await fetch(main.breeds);
+	const breedsResponse = await fetch(`${main.breeds}?t=${dateNow}`, {
+		cache: "no-store"
+	});
 	if (!breedsResponse.ok) {
 		throw new Error(`Error fetching main.breeds json file: ${breedsResponse.status}`);
 		document.getElementById('output').innerHTML = `Error fetching main.breeds json file: ${breedsResponse.status}`;
 		return;
 	}
 	breeds = await breedsResponse.json();
-	console.log(breeds);
-
-	draw();
+	// console.log(breeds);
 }
 
 function draw() {
@@ -101,7 +120,20 @@ function draw() {
 	document.getElementById('output').innerHTML = output;
 }
 
-setInterval(() => {
+setInterval(async () => {
+	const gist = await fetch(`${main.gist}?t=${dateNow}`, {
+		cache: "no-store"
+	}).then(
+		r => r.json()
+	);
+	const update_at = gist.updated_at;
+	// console.log(gist, gist.updated_at);
+
+	if (gistLastUpdated !== update_at) {
+		gistLastUpdated = update_at;
+		await getJSON();
+	}
+
 	draw();
 }, 10 * 60 * 1000);
 

@@ -1,4 +1,5 @@
 {
 	"player": "https://gist.githubusercontent.com/kakol20/b2c8310069f3c4289fc4db8d3f310bbb/raw/kakol20.json",
-	"breeds": "https://gist.githubusercontent.com/kakol20/b2c8310069f3c4289fc4db8d3f310bbb/raw/breeds.json"
+	"breeds": "https://gist.githubusercontent.com/kakol20/b2c8310069f3c4289fc4db8d3f310bbb/raw/breeds.json",
+	"gist": "https://api.github.com/gists/b2c8310069f3c4289fc4db8d3f310bbb"
 }
