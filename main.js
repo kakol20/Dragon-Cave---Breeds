@@ -2,10 +2,8 @@ let main;
 let player;
 let breeds;
 
-let gistLastUpdated;
-
 async function run() {
-	const dateNow = Date.now();
+	firstDate = Date.now();
 	const mainResponse = await fetch('main.json');
 	if (!mainResponse.ok) {
 		throw new Error(`Error fetching main.json: ${mainResponse.staus}`);
@@ -15,7 +13,7 @@ async function run() {
 	main = await mainResponse.json();
 	// console.log(main);
 
-	const gist = await fetch(`${main.gist}?t=${dateNow}`, {
+	const gist = await fetch(`${main.gist}`, {
 		cache: "no-store"
 	}).then(
 		r => r.json()
@@ -28,8 +26,7 @@ async function run() {
 }
 
 async function getJSON() {
-	const dateNow = Date.now();
-	const playerResponse = await fetch(`${main.player}?t=${dateNow}`, {
+	const playerResponse = await fetch(`${main.player}`, {
 		cache: "no-store"
 	});
 	if (!playerResponse.ok) {
@@ -41,7 +38,7 @@ async function getJSON() {
 	player.dragons.sort(sortDragons);
 	// console.log(playerResponse, player);
 
-	const breedsResponse = await fetch(`${main.breeds}?t=${dateNow}`, {
+	const breedsResponse = await fetch(`${main.breeds}`, {
 		cache: "no-store"
 	});
 	if (!breedsResponse.ok) {
@@ -93,7 +90,7 @@ function draw() {
 		output += `<td>`;
 		for (const dragon of breed.view) {
 			output += `<a href="https://dragcave.net/view/${dragon}" target="_blank">`;
-			output += `<img src="https://dragcave.net/image/${dragon}.gif?t=${dateNow}" alt="${dragon}">`;
+			output += `<img src="https://dragcave.net/image/${dragon}.gif" alt="${dragon}">`;
 			output += `</a> `;
 			++dragonsDisplayed;
 		}
@@ -122,7 +119,11 @@ function draw() {
 	document.getElementById('output').innerHTML = output;
 }
 
+let gistLastUpdated;
+let firstDate;
 setInterval(async () => {
+	sessionStorage.setItem("scrollY", window.scrollY);
+
 	const dateNow = Date.now();
 	const dateStr = new Date(dateNow);
 	const gist = await fetch(`${main.gist}`, {
@@ -133,15 +134,15 @@ setInterval(async () => {
 	const update_at = gist.updated_at;
 	// console.log(gist, gist.updated_at);
 
-	if (gistLastUpdated !== update_at) {
-		gistLastUpdated = update_at;
-		await getJSON();
-		console.log('JSON Changed', dateStr);
-	}
+	if (gistLastUpdated !== update_at) location.reload();
 
-	console.log('Redrawing', dateStr);
-	draw();
+	if (dateNow - firstDate >= 60 * 60 * 1000) location.reload();
 }, 10 * 60 * 1000);
+
+window.addEventListener("load", () => {
+	const y = sessionStorage.getItem("scrollY");
+	if (y) window.scrollTo(0, parseInt(y));
+});
 
 function sortDragons(a, b) {
 	if (a.view.length !== b.view.length) return a.view.length - b.view.length;
