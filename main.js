@@ -52,7 +52,7 @@ async function run() {
 		for (const egg in breeds[breed.id].name) {
 			output += `<a href="${breeds[breed.id].encyclopedia}" target="_blank">`;
 			output += `<img src="${breeds[breed.id].img[egg]}"`;
-			output += `title="${breeds[breed.id].name[egg]}`;
+			output += `title="${breeds[breed.id].name[egg]}"`;
 			output += `\n${breeds[breed.id].description}">`;
 			output += `</a> `;
 		}
@@ -62,7 +62,7 @@ async function run() {
 		output += `<td>`;
 		for (const dragon of breed.view) {
 			output += `<a href="https://dragcave.net/view/${dragon}" target="_blank">`;
-			output += `<img src="https://dragcave.net/image/${dragon}.gif">`;
+			output += `<img src="https://dragcave.net/image/${dragon}.gif" alt="${dragon}">`;
 			output += `</a> `;
 			++dragonsDisplayed;
 		}
