@@ -7,9 +7,6 @@ let firstDate;
 let gist = null;
 
 async function run() {
-	const y = sessionStorage.getItem("scrollY");
-	if (y) window.scrollTo(0, parseInt(y));
-
 	firstDate = Date.now();
 
 	const mainResponse = await fetch('main.json');
@@ -41,6 +38,9 @@ async function run() {
 
 	await getJSON();
 	draw();
+
+	const y = sessionStorage.getItem('scrollY');
+	if (y) window.scrollTo(0, parseInt(y));
 }
 
 async function getJSON() {
@@ -68,14 +68,21 @@ async function getJSON() {
 	// console.log(breeds);
 }
 
-function draw() {
+async function draw() {
 	const dateNow = Date.now();
 	const dateStr = new Date(dateNow);
 
 	let output = `<table>`;
 
 	//  ========== HEADER ==========
-	output += `<h5>Last Updated: ${dateStr}</h5>`;
+	output += `<h5>Last Reloaded: ${dateStr}`;
+	output += `<br>Gist Last Updated: ${new Date(gist.updated_at)}`;
+
+	const rateLimit = await fetch('https://api.github.com/rate_limit').then(r => r.json());
+	console.log(rateLimit);
+	output += `<br>Rate limit remaining: ${rateLimit.rate.remaining} of ${rateLimit.rate.limit}`;
+	output += `<br>Rate limit reset on: ${new Date(rateLimit.rate.reset * 1000)}</h5>`
+
 	output += `<tr><th>Egg</th><th>Dragons</th></tr>`;
 
 	// ========== DRAGONS ==========
@@ -154,6 +161,10 @@ setInterval(async () => {
 
 	location.reload();
 }, 10 * 60 * 1000);
+
+window.onbeforeunload = function(event) {
+	sessionStorage.setItem('scrollY', window.scrollY);
+}
 
 function sortDragons(a, b) {
 	if (a.view.length !== b.view.length) return a.view.length - b.view.length;
