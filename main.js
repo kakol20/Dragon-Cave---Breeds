@@ -24,15 +24,7 @@ async function run() {
 		gist = JSON.parse(gist);
 		console.log('Has Gist Session Storage', gist);
 	} else {
-		gist = await fetch(`${main.gist}`, {
-			cache: "no-store"
-		}).then(
-			r => r.json()
-		);
-		gistLastUpdated = gist.updated_at;
-		console.log(gist, gist.updated_at);
-
-		sessionStorage.setItem('gist', JSON.stringify(gist));
+		checkGitAPI();
 		console.log('Has No Gist Session Storage', gist);
 	}
 
@@ -43,9 +35,31 @@ async function run() {
 	if (y) window.scrollTo(0, parseInt(y));
 }
 
+async function checkGitAPI() {
+	const rate_limit = await checkRateLimit();
+
+	if (rate_limit.rate.remaining <= 0) return;
+
+	gist = await fetch(`${main.gist}`, {
+		cache: 'no-store'
+	}).then(
+		r => r.json()
+	);
+	gistLastUpdated = gist.updated_at;
+	console.log(gist, gist.updated_at);
+
+	sessionStorage.setItem('gist', JSON.stringify(gist));
+}
+
+async function checkRateLimit() {
+	return await fetch('https://api.github.com/rate_limit', {
+		cache: 'no-store'
+	}).then(r => r.json());
+}
+
 async function getJSON() {
 	const playerResponse = await fetch(`${main.player}`, {
-		cache: "no-store"
+		cache: 'no-store'
 	});
 	if (!playerResponse.ok) {
 		throw new Error(`Error fetching main.player json file: ${playerResponse.status}`);
@@ -57,7 +71,7 @@ async function getJSON() {
 	// console.log(playerResponse, player);
 
 	const breedsResponse = await fetch(`${main.breeds}`, {
-		cache: "no-store"
+		cache: 'no-store'
 	});
 	if (!breedsResponse.ok) {
 		throw new Error(`Error fetching main.breeds json file: ${breedsResponse.status}`);
@@ -78,7 +92,7 @@ async function draw() {
 	output += `<h5>Last reloaded: ${dateStr}`;
 	output += `<br>Gist last updated: ${new Date(gist.updated_at)}`;
 
-	const rateLimit = await fetch('https://api.github.com/rate_limit').then(r => r.json());
+	const rateLimit = await checkRateLimit();
 	console.log(rateLimit);
 	output += `<br>Rate limit remaining: ${rateLimit.rate.remaining} of ${rateLimit.rate.limit}`;
 	output += `<br>Rate limit reset on: ${new Date(rateLimit.rate.reset * 1000)}</h5>`
@@ -149,11 +163,8 @@ setInterval(async () => {
 
 	const dateNow = Date.now();
 	const dateStr = new Date(dateNow);
-	gist = await fetch(`${main.gist}`, {
-		cache: "no-store"
-	}).then(
-		r => r.json()
-	);
+
+	checkGitAPI();
 	const update_at = gist.updated_at;
 
 	// if (gistLastUpdated !== update_at) location.reload();
@@ -162,7 +173,7 @@ setInterval(async () => {
 	location.reload();
 }, 10 * 60 * 1000);
 
-window.onbeforeunload = function(event) {
+window.onbeforeunload = function (event) {
 	sessionStorage.setItem('scrollY', window.scrollY);
 }
 
