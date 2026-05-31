@@ -48,3 +48,8 @@ table {
 	border-collapse: collapse;
 	text-align: center;
 }
+
+img {
+	image-rendering: pixelated;
+	image-rendering: -moz-crisp-edges;
+}
